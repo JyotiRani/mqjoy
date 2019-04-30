@@ -68,6 +68,6 @@ spec:
     name: console-https
   - port: 1414
     name: qmgr
-    selector:
-     app: mq-dev
+  selector:
+    app: mq-dev
 	
