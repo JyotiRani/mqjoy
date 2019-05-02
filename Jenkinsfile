@@ -3,7 +3,7 @@ node {
     stage("Checkout") {
         sh 'echo "Checkout Started ...."'
         checkout scm
-        sh "cp -r ./* ./"        
+        sh "cp ./* ./"        
         sh 'echo "Checkout Completed ...."'
     }    
     stage("Docker build") {
