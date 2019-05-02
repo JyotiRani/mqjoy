@@ -28,8 +28,7 @@ node {
             sh """
             #!/bin/bash
             echo "Deploy Started ...."
-            kubectl get pods
-            kubectl create -f ./mq-statefulset.yaml
+            kubernetesDeploy configs: './mq-statefulset.yaml', kubeConfig: [path: ''], kubeconfigId: 'CLUSTER1_KUBE_CONFIG', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
             echo "Deploy Completed ...."
             """
         }
