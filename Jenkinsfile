@@ -24,14 +24,18 @@ node {
         }
     }
      stage("Deploy mq Docker Image") {
-        withKubeConfig([credentialsId: 'CLUSTER1_KUBE_CONFIG', serverUrl: 'https://9.121.242.180']) { 
-            sh """
-            #!/bin/bash
-            echo "Deploy Started ...."
-            kubectl get pods
-            
-            echo "Deploy Completed ...."
-            """
+         withCredentials([kubeconfigContent(credentialsId: 'CLUSTER1_KUBE_CONFIG', variable: 'KUBECONFIG_CONTENT')]) {
+            sh '''echo "$KUBECONFIG_CONTENT" > kubeconfig && cat kubeconfig && rm kubeconfig'''
+            //kubectl get pods
         }
+        //withKubeConfig([credentialsId: 'CLUSTER1_KUBE_CONFIG', serverUrl: 'https://9.121.242.180']) { 
+          //  sh """
+            //#!/bin/bash
+            //echo "Deploy Started ...."
+            //kubectl get pods
+            
+            //echo "Deploy Completed ...."
+            //"""
+        //}
     }   
  }
