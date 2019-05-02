@@ -2,8 +2,7 @@ node {
     def app
     stage("Checkout") {
         sh 'echo "Checkout Started ...."'
-        checkout scm
-        sh "cp ./* ./"        
+        checkout scm              
         sh 'echo "Checkout Completed ...."'
     }    
     stage("Docker build") {
