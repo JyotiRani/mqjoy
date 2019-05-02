@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: qmgr
-        image: ibmcom/mq
+        image: myclusterhcl1.icp:8500/hcl-mq/mqtest:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 1414
