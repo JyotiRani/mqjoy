@@ -24,7 +24,7 @@ node {
         }
     }
      stage("Deploy mq Docker Image") {
-        withCredentials([kubeconfigContent(credentialsId: 'CLUSTER1_KUBE_CONFIG', variable: 'KUBECONFIG_CONTENT')]) { 
+        withKubeConfig([credentialsId: 'CLUSTER1_KUBE_CONFIG', serverUrl: 'https://9.121.242.180']) { 
             sh """
             #!/bin/bash
             echo "Deploy Started ...."
