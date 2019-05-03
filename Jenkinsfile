@@ -27,7 +27,7 @@ node {
          withCredentials([kubeconfigContent(credentialsId: 'CLUSTER1_KUBE_CONFIG', variable: 'KUBECONFIG_CONTENT')]) {
             sh """
              echo "$KUBECONFIG_CONTENT" > kubeconfig && cat kubeconfig && rm kubeconfig
-             kubectl get pods --kubeconfig ${KUBECONFIG_CONTENT}
+             kubectl get pods
             """ 
         }
         //withKubeConfig([credentialsId: 'CLUSTER1_KUBE_CONFIG', serverUrl: 'https://9.121.242.180']) { 
